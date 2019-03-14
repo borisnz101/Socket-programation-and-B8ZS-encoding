@@ -1,7 +1,9 @@
-public class TEST2 {
+
+	
+	public class TEST2 {
 	
 	 static public void main(String[] args) { 
-	    	String  text = "+000+-0-+--------" ;
+	    	String  text = "-000+-0-+--------" ;
 	    	 String bonTruc = "" ;
 	    	 
 	    
@@ -16,20 +18,18 @@ public class TEST2 {
 					
 					bonTruc = text.replace("000+-0-+","00000000") ;
 				
-				
 					
-						}
 					for (int i=0; i<bonTruc.length() ;i++){
 						
-				    	if (bonTruc.charAt(i) ==  "+"  ){
+				    	if (bonTruc.charAt(i) ==  '+'  ){
 				    		
 				    	System.out.println(bonTruc.replace("+","1")); 
 				    	}	
 				    	  break ;
 					}
-					for (int i=0; i<bonTruc.length() ;i++){
+					  for (int i=0; i<bonTruc.length() ;i++){
 						
-				    	 if  ( bonTruc.charAt(i)==  "-" ){
+				    	 if  (bonTruc.charAt(i)==  '-' ){
 				    		
 				    		System.out.println(bonTruc.replace("-","1")); 
 				    	}
@@ -50,3 +50,4 @@ public class TEST2 {
 	
 			} 
 			
+
