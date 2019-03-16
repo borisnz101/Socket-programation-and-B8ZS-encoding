@@ -60,8 +60,8 @@ public class ChatServer {
 			String msgSnd = "SEL" + decoded;
 			// for(int id = 0 ; id < ServerSocketManager.MAXCLIENTS; id++)
 			// {
-			if (ssm.isClosed(newClientId) == false) {
-				ssm.writeClient(newClientId, msgSnd);
+			if (ssm.isClosed(0) == false) {
+				ssm.writeClient(0, msgSnd);
 			}
 			// }
 			// }
@@ -86,7 +86,7 @@ public class ChatServer {
 		// System.out.println(text.charAt(i+1)) ;
 		// System.out.println(text);
 
-		a = d.replace("000+-0-+", "00000000");
+
 		// System.out.println("a est :"+a);
 		bonTruc = a.replace("000-+0+-", "00000000");
 		// System.out.println("bon truc est :"+bonTruc);
