@@ -60,8 +60,8 @@ public class ChatServer {
 			String msgSnd = "SEL" + decoded;
 			// for(int id = 0 ; id < ServerSocketManager.MAXCLIENTS; id++)
 			// {
-			if (ssm.isClosed(newClientId) == false) {
-				ssm.writeClient(newClientId, msgSnd);
+			if (ssm.isClosed(0) == false) {
+				ssm.writeClient(0, msgSnd);
 			}
 			// }
 			// }
