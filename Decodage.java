@@ -1,8 +1,10 @@
 
 public class TEST2 {
 
-	static public void main(String[] args) {
-		// String text = "+000+-0-+" ;
+	//static public void main(String[] args) {
+	Public static String decode() {
+		
+	// String text = "+000+-0-+" ;
 		// String text = "+000+-0-+000-00" ;
 		String text = "+-000-+0+-+-00000+0";
 		// String text = "+-0+00-" ;

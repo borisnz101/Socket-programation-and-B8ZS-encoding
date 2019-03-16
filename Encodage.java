@@ -3,8 +3,11 @@ import java.util.Scanner;
 
 public class Encodage {
 
-		String text;
-		String bonTruc = "";
+		
+	public static String encode(String s) {
+		
+		String s;
+		String txtEncoded = "";
 
 		/*Scanner scan = new Scanner(System.in);
 		System.out.println("please enter the binary code");
@@ -12,9 +15,9 @@ public class Encodage {
 
 		// boolean previousDigitZero = false;
 		boolean previousOnePositive = false;
-		StringBuilder encodedString = new StringBuilder(text);
+		StringBuilder encodedString = new StringBuilder(s);
 
-		for (int j = 0; j < text.length(); j++) {
+		for (int j = 0; j < s.length(); j++) {
 			if (encodedString.charAt(j) == '1') {
 				if (previousOnePositive) {
 					encodedString.setCharAt(j, '-');
@@ -25,20 +28,20 @@ public class Encodage {
 				previousOnePositive = !previousOnePositive;
 				// previousDigitZero = false;
 
-				bonTruc = encodedString.toString();
+				txtEncoded = encodedString.toString();
 
 			}
-			for (int i = 0; i < text.length();) {
+			for (int i = 0; i < s.length();) {
 
 				// System.out.println(text.charAt(i)) ;
 				// System.out.println(text.charAt(i+1)) ;
 
-				if (text.charAt(i) == text.charAt(i + 1)) {
-					System.out.println(bonTruc.replace("00000000", "000-+0+-"));
+				if (s.charAt(i) == s.charAt(i + 1)) {
+					System.out.println(txtEncoded.replace("00000000", "000-+0+-"));
 
 					break;
 				} else {
-					System.out.println(bonTruc.replace("00000000", "000+-0-+"));
+					System.out.println(txtEncoded.replace("00000000", "000+-0-+"));
 
 					break;
 				}
@@ -46,5 +49,6 @@ public class Encodage {
 			}
 		}
 
-	}
+	} return txtEncoded;
+}
 
