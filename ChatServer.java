@@ -56,20 +56,20 @@ public class ChatServer
             				System.out.println("Unknown message ("+newClientId+"): >"+msgRcv+"<");
         			}
         			
-   
+        			String decoded = decode(toDecode);
         	//}
         	
         	// Distribute received messages to all clients
         	//for(int mIx = 0; mIx < msgIx ; mIx++)
         	//{
-        		String msgSnd = "SEL"+msgs[mIx];
-        		for(int id = 0 ; id < ServerSocketManager.MAXCLIENTS; id++)
-        		{
-        			if(ssm.isClosed(id) == false)
+        		String msgSnd = "SEL"+decoded;
+        		//for(int id = 0 ; id < ServerSocketManager.MAXCLIENTS; id++)
+        		//{
+        			if(ssm.isClosed(newClientId) == false)
         			{
-        			    ssm.writeClient(id, msgSnd);
+        			    ssm.writeClient(newClientId, msgSnd);
         			}
-        		}       		
+        		//}       		
         	//}
         	//msgIx = 0;  // Reset index to fill array again
         	
@@ -81,7 +81,7 @@ public class ChatServer
     public static String decode(String d) {
     	// String text = "+000+-0-+" ;
     			// String text = "+000+-0-+000-00" ;
-    			String text = "+-000-+0+-+-00000+0";
+    			//String text = "+-000-+0+-+-00000+0";
     			// String text = "+-0+00-" ;
     			String bonTruc = "";
     			String a = "";
@@ -92,7 +92,7 @@ public class ChatServer
     			// System.out.println(text.charAt(i+1)) ;
     			// System.out.println(text);
 
-    			a = text.replace("000+-0-+", "00000000");
+    			a = d.replace("000+-0-+", "00000000");
     			// System.out.println("a est :"+a);
     			bonTruc = a.replace("000-+0+-", "00000000");
     			// System.out.println("bon truc est :"+bonTruc);
