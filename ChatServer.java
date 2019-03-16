@@ -16,6 +16,7 @@ public class ChatServer
         String msgRcv; // for referencing messages received
         // Setup array of strings to receive messages from clients
         String [] msgs = new String[ServerSocketManager.MAXCLIENTS];
+        String [] msgsDecoded = new String[ServerSocketManager.MAXCLIENTS];
         int msgIx = 0; // counting messages added to the array
         // Main Loop       
         boolean bListening = true;
@@ -57,18 +58,20 @@ public class ChatServer
         	}
         	
         	for(int mIx = 0; mIx < msgIx ; mIx++) {
-        		msgs[mIx] = decode(msgs[mIx]);
+        		msgsDecoded[mIx] = decode(msgs[mIx]);
         	}
         	
         	// Distribute received messages to all clients
         	for(int mIx = 0; mIx < msgIx ; mIx++)
         	{
         		String msgSnd = "SEL"+msgs[mIx];
+        		String msgSndDecoded = "SEL"+msgsDecoded[mIx];
         		for(int id = 0 ; id < ServerSocketManager.MAXCLIENTS; id++)
         		{
         			if(ssm.isClosed(id) == false)
         			{
         			    ssm.writeClient(id, msgSnd);
+        			    ssm.writeClient(id, msgSndDecoded);
         			}
         		}       		
         	}

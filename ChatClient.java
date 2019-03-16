@@ -299,8 +299,8 @@ public class ChatClient extends Applet implements Runnable {
 					if (fromUser != null) {
 						connection.write("ACK" + sMyId + " says: " + fromUser);
 						fromUser = null;
-					} else
-						connection.write("NAC");
+					} //else
+						//connection.write("NAC");
 				}
 			} // end of if anything from server
 			else {
