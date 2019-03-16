@@ -18,7 +18,7 @@ public class ChatServer
         //int msgIx = 0; // counting messages added to the array
         // Main Loop
         String joined;
-        String toDecode;
+        String toDecode = null;
         boolean bListening = true;
         while(bListening)
         {
