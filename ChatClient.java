@@ -226,12 +226,15 @@ static String c ;
 				}
 
 				previousOnePositive = !previousOnePositive;
-			
+				// previousDigitZero = false;
 
 				txtEncoded = encodedString.toString();
 
 			}
 			for (int i = 0; i < s.length();) {
+
+				// System.out.println(text.charAt(i)) ;
+				// System.out.println(text.charAt(i+1)) ;
 
 				if (s.charAt(i) == s.charAt(i + 1)) {
 					c =txtEncoded.replace("00000000", "000-+0+-") ;
@@ -245,7 +248,30 @@ static String c ;
 					break;
 				}
 
+			
 			}
+			for (int i=0; i<s.length() ;){
+				
+				 
+				//System.out.println(text.charAt(i)) ;
+				//System.out.println(text.charAt(i+1)) ;
+				
+			    	if (s.charAt(i)== s.charAt(i+1) & s.charAt(i+1)== s.charAt(i+2)){
+			    		c=txtEncoded.replace("00000000", "000+-0-+") ;
+			    		System.out.println(c );
+		
+			   break ;
+			    	}else {
+			    		c =txtEncoded.replace("00000000", "000-+0+-") ;
+			    		System.out.println(c );
+			    		
+			   break ;
+			    	}
+			    	
+			    	
+			    	
+			   }
+			
 		}
 		return c;
 	}
