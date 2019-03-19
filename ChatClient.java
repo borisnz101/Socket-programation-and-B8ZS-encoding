@@ -137,6 +137,7 @@ public class ChatClient extends Applet implements Runnable {
 
 				fromUser = encode(textField.getText());
 				textField.setText("");
+                 System.out.println(c);
 			} else
 				fromUser = null;
 
@@ -202,7 +203,7 @@ public class ChatClient extends Applet implements Runnable {
 		sConnection = "Not Connected to the chat server!";
 		repaint();
 	}// end of run
-
+static String c ;
 	public static String encode(String s) {
 
 		String txtEncoded = "";
@@ -225,29 +226,28 @@ public class ChatClient extends Applet implements Runnable {
 				}
 
 				previousOnePositive = !previousOnePositive;
-				// previousDigitZero = false;
+			
 
 				txtEncoded = encodedString.toString();
 
 			}
 			for (int i = 0; i < s.length();) {
 
-				// System.out.println(text.charAt(i)) ;
-				// System.out.println(text.charAt(i+1)) ;
-
 				if (s.charAt(i) == s.charAt(i + 1)) {
-					System.out.println(txtEncoded.replace("00000000", "000-+0+-"));
+					c =txtEncoded.replace("00000000", "000-+0+-") ;
+					System.out.println(c);
 
 					break;
 				} else {
-					System.out.println(txtEncoded.replace("00000000", "000+-0-+"));
+					c=txtEncoded.replace("00000000", "000+-0-+") ;
+					System.out.println(c);
 
 					break;
 				}
 
 			}
 		}
-		return txtEncoded;
+		return c;
 	}
 
 	// ***********************************
@@ -299,6 +299,7 @@ public class ChatClient extends Applet implements Runnable {
 					if (fromUser != null) {
 						connection.write("ACK" + sMyId + " says: " + fromUser);
 						fromUser = null;
+						
 					} //else
 						//connection.write("NAC");
 				}
